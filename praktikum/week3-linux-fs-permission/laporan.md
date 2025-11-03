@@ -172,6 +172,22 @@ hasilnya :
 | `ls -l percobaan.txt` | `-rw-r--r-- 1 nisaulhidayah809 nisaulhidayah809 ... percobaan.txt` | Menampilkan detail file: pemilik dan grup sama, serta hak akses awal (read-write untuk user, read-only untuk group dan others). |
 | `chmod 600 percobaan.txt` kemudian `ls -l percobaan.txt` | `-rw------- 1 nisaulhidayah809 nisaulhidayah809 ... percobaan.txt` | Setelah `chmod`, hanya pemilik yang bisa membaca dan menulis; grup dan lainnya tidak punya akses. File menjadi privat. |
 | `sudo chown root percobaan.txt` kemudian `ls -l percobaan.txt` | `-rw------- 1 root nisaulhidayah809 ... percobaan.txt` | File sekarang dimiliki oleh user `root`. Grup tetap `nisaulhidayah809`. Hak akses tidak berubah (`rw-------`). |
+2. 
+| **Perintah** | **Fungsi** |
+|---------------|------------|
+| `echo "Hello <NAME><NIM>" > percobaan.txt` | Membuat file baru bernama `percobaan.txt` dan menulis teks ke dalamnya. |
+| `ls -l percobaan.txt` | Menampilkan informasi lengkap file, termasuk izin akses (permission), pemilik (owner), grup, ukuran, dan waktu modifikasi. |
+| `chmod 600 percobaan.txt` | Mengubah hak akses (permission) file agar hanya pemilik (user) yang dapat membaca dan menulis. |
+| `sudo chown root percobaan.txt` | Mengubah kepemilikan (owner) file menjadi user `root`. |
+
+| **Simbol** | **Arti** |
+|-------------|-----------|
+| `-` | Menunjukkan file biasa (bukan direktori). |
+| `rwx` | Dapat membaca (`r`), menulis (`w`), dan mengeksekusi (`x`). |
+| `r-x` | Anggota grup dapat membaca dan mengeksekusi, tetapi tidak bisa menulis. |
+| `r--` | Hanya dapat membaca file. |
+3. Peran dari perintah chmod dan chown sama sama penting dalam menjaga keamanan sistem Linux karena keduanya digunakan untuk mengatur hak akses terhadap file dan kepemilikan file. Perintah chmod memungkinkan pengguna untuk menenetukan siapa saja yang dapat membaca, tulis, dan eksekusi untuk sebuah file atau direktori. Melalui konfigurasi izin yang tepat, administrator dapat mencegah pengguna yang tidak berwenang untuk mengubah atau menghapus file penting, sehingga menjaga kerahasiaan dan integritas data. Dengan chown, kepemilikan file dan direktori dapat diubah. Kontrol dan perintah atas file dapat dibatasi kepada pengguna tertentu. Kombinasi dari perintah-perintah ini meminimalkan akses dan potensi penyalahgunaan sumber daya sistem, oleh karena itu, menjaga keamanan sistem Linux.
+
 ---
 
 ## Quiz
