@@ -144,9 +144,9 @@ Sertakan screenshot hasil percobaan atau diagram:
 
 | *Perintah* | *Output  ** | **Penjelasan* |
 |---------------|--------------------|---------------------------|
-| sleep 1000 & | [2] 1776 | Menjalankan perintah sleep 1000 di background selama 1000 detik. Angka *[2]* adalah nomor job, dan *1776* adalah PID (Process ID) dari proses sleep. |
+| sleep 1000 & | [2] 2015 | Menjalankan perintah sleep 1000 di background selama 1000 detik. Angka *[2]* adalah nomor job, dan *2015* adalah PID (Process ID) dari proses sleep. |
 | ps aux \| grep sleep | Menampilkan daftar proses yang mengandung kata “sleep” | Digunakan untuk memeriksa apakah proses sleep masih berjalan dengan menyaring hasil ps aux menggunakan grep. |
-| *PID proses sleep* | 1776 | PID ini adalah identitas unik proses sleep 1000 yang sedang berjalan di background oleh user *nisaulhida77*. |
+| *PID proses sleep* | 2015 | PID ini adalah identitas unik proses sleep 1000 yang sedang berjalan di background oleh user *nisaulhida77*. |
 
 - Eksperimen 4
 Proses induk tertinggi pada hasil pengamatan ini adalah bash(1), dan secara sistem, proses ini berada di bawah init atau systemd, yang berperan sebagai proses induk utama seluruh sistem operasi Linux.
