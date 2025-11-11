@@ -99,6 +99,10 @@ Tuliskan potongan kode atau perintah utama:
      | P1 | P2 | P3 | P4 |
      0    6    14   21   24
 ```
+```
+     | P1 | P2 | P3 | P4 |
+     0    6    9   16   24
+```
 
 ---
 
@@ -107,8 +111,16 @@ Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/Eksperimen1&2.png)
 >Eksperimen 1
 ![Screenshot hasil](screenshots/Eksperimen1.png)
+```
+     | P1 | P2 | P3 | P4 |
+     0    6    14   21   24
+```
 > Eksperimen 2
 ![Screenshot hasil](screenshots/Eksperimen2.png)
+```
+     | P1 | P2 | P3 | P4 |
+     0    6    9   16   24
+```
 
 | Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
 |------------|------------------|----------------------|------------|-------------|
