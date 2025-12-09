@@ -156,9 +156,9 @@ Pada versi fixed, strategi sinkronisasi ditambahkan — misalnya dengan semaphor
 ## Refleksi Diri
 Tuliskan secara singkat:
 - Apa bagian yang paling menantang minggu ini?  
-Mengimplentasikan kode dining philoshopers.
+Mengimplentasikan kode dining philoshopers dan menggunakan semaphore dengan benar.
 - Bagaimana cara Anda mengatasinya?  
-Dengan cara berdiskusi dengan teman sekelompok.
+Dengan cara mencari referensi, mencari contoh kode, dan berdiskusi dengan teman sekelompok.
 
 ---
 
