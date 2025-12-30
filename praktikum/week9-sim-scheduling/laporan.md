@@ -72,7 +72,7 @@ Topik: ["Simulasi Algoritma Penjadwalan CPU"]
 ---
 
 ## Kode / Perintah
-```
+```bash
 import csv
 
 data_proses = []
