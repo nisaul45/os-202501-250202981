@@ -72,12 +72,38 @@ Topik: ["Simulasi Algoritma Penjadwalan CPU"]
 ---
 
 ## Kode / Perintah
-```| Proses | Arrival Time | Burst Time |
-   |:--:|:--:|:--:|
-   | P1 | 0 | 6 |
-   | P2 | 1 | 8 |
-   | P3 | 2 | 7 |
-   | P4 | 3 | 3 |
+```bash
+import csv
+
+data_proses = []
+with open('dataset.csv', 'r') as file:
+    for b in csv.DictReader(file):
+        data_proses.append({
+            'proses': b['Process'],
+            'arrival_time': int(b['ArrivalTime']),
+            'burst_time': int(b['BurstTime'])
+        })
+
+data_proses.sort(key=lambda x: x['arrival_time'])
+
+waktu = total_wait = total_ta = 0
+
+print("SIMULASI PENJADWALAN FCFS")
+print("Proses | Arrival | Burst | Waiting | Turnaround")
+
+for p in data_proses:
+    if waktu < p['arrival_time']:
+        waktu = p['arrival_time']
+    wait = waktu - p['arrival_time']
+    ta = wait + p['burst_time']
+    total_wait += wait
+    total_ta += ta
+    print(f"{p['proses']:>4}   | {p['arrival_time']:>7} | {p['burst_time']:>5} | {wait:>7} | {ta:>10}")
+    waktu += p['burst_time']
+
+n = len(data_proses)
+print(f"Rata-rata Waiting Time    : {total_wait / n:.2f}")
+print(f"Rata-rata Turnaround Time : {total_ta / n:.2f}")
 ```
 
 ---
