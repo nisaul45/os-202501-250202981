@@ -1,13 +1,13 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu [10]
+Topik: ["Manajemen Memori – Page Replacement (FIFO & LRU)"]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [Nisa'ul Hidayah]  
+- **NIM**   : [25020981]  
+- **Kelas** : [1IKRB]
 
 ---
 
