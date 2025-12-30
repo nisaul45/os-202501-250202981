@@ -5,6 +5,7 @@ def print_header(title):
     print(f"| {'Page':^6} | {'Status':^8} | {'Isi Frame (Memori)':^33} |")
     print("-" * 60)
 
+
 def fifo(pages, frame_size):
     frame = []
     page_fault = 0
@@ -58,22 +59,16 @@ def lru(pages, frame_size):
     return page_fault
 
 # ===================== MAIN PROGRAM =====================
-pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
-frame_size = 3
+if __name__ == "__main__":
+    pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
+    frame_size = 3
 
-print("Dataset Loaded :", pages)
-print("Jumlah Frame   :", frame_size)
+    print("Dataset Loaded :", pages)
+    print("Jumlah Frame   :", frame_size)
 
-fifo_fault = fifo(pages, frame_size)
-lru_fault = lru(pages, frame_size)
+    fifo_fault = fifo(pages, frame_size)
+    lru_fault = lru(pages, frame_size)
 
-print("\n=== PERBANDINGAN ===")
-print(f"FIFO Page Faults : {fifo_fault}")
-print(f"LRU  Page Faults : {lru_fault}")
-
-if lru_fault < fifo_fault:
-    print(">> Algoritma LRU lebih efisien pada dataset ini.")
-elif fifo_fault < lru_fault:
-    print(">> Algoritma FIFO lebih efisien pada dataset ini.")
-else:
-    print(">> Kedua algoritma memiliki performa yang sama.")
+    print("\n=== PERBANDINGAN ===")
+    print(f"FIFO Page Faults : {fifo_fault}")
+    print(f"LRU  Page Faults : {lru_fault}")
