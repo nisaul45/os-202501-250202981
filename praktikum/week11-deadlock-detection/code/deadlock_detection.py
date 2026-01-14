@@ -5,7 +5,7 @@ allocation = {}
 request = {}
 
 # Membaca dataset
-with open("dataset_deadlock.csv") as file:
+with open("c:/os-202501-250202981/praktikum/week11-deadlock-detection/code/dataset_deadlock.csv") as file:
     reader = csv.DictReader(file)
     for row in reader:
         p = row["Process"]
