@@ -22,10 +22,13 @@ Topik: [Docker – Resource Limit (CPU & Memori)]
 
 ## Dasar Teori
 - Containerization dan Docker
+
 Containerization adalah teknologi untuk mengemas aplikasi beserta semua dependensinya (library, file konfigurasi, dll) ke dalam satu paket yang disebut container. Container bersifat portable, artinya bisa jalan di mana saja (laptop, server, cloud) dengan hasil yang sama. Docker adalah platform paling populer untuk membuat dan menjalankan container.
 - Control Groups (cgroups)
+
 Cgroups adalah fitur di Linux yang berfungsi membatasi berapa banyak resource (CPU, RAM, dll) yang boleh dipakai oleh sekelompok proses. Docker pakai cgroups ini untuk membatasi resource container. 
 - Resource Limits di Docker dan OOM (Out of Memory) Killer
+
 Docker punya perintah untuk membatasi resource container, contohnya --cpus="0.5" (cuma boleh pakai setengah core CPU) atau --memory="256m" (maksimal 256MB RAM). Batasan ini dipaksa berlaku oleh sistem operasi, jadi container tidak bisa "curang". Ketika container mencoba menggunakan memori melebihi limit yang ditetapkan, Linux OOM Killer dapat mengintervensi dan menghentikan proses di dalam container untuk melindungi stabilitas sistem.
 
 ---
