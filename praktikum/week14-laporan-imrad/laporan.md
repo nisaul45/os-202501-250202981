@@ -13,18 +13,26 @@ Topik: [ Penyusunan Laporan Praktikum Format IMRAD]
 
 ## Pendahuluan
 ## Latar Belakang
-Penjadwalan CPU merupakan salah satu fungsi utama sistem operasi yang bertujuan untuk mengatur urutan eksekusi proses agar penggunaan prosesor menjadi efisien dan adil. Setiap proses memiliki waktu kedatangan (arrival time) dan waktu eksekusi (burst time) yang harus dikelola oleh sistem operasi agar tidak etrjadi penumpukan proses. Dua algoritma penjadwalan yang paling dasar adalah First Come First Served (FCFS) dan Shortest Job First (SJF). FCFS mengeksekusi proses berdasarkan urutan kedatangan, sedangkan SJF memprioritaskan proses dengan waktu eksekusi paling pendek.
+Penjadwalan CPU merupakan salah satu fungsi utama sistem operasi yang bertujuan untuk mengatur urutan eksekusi proses agar penggunaan prosesor menjadi efisien dan adil. Setiap proses memiliki waktu kedatangan (arrival time) dan waktu eksekusi (burst time) yang harus dikelola oleh sistem operasi agar tidak etrjadi penumpukan proses. Terdapat dua algoritma penjadwalan yang paling dasar adalah First Come First Served (FCFS) dan Shortest Job First (SJF). FCFS mengeksekusi proses berdasarkan urutan kedatangan, sedangkan SJF memprioritaskan proses dengan waktu eksekusi paling pendek.
+
+Pemahaman terhadap kedua algoritma ini penting dalam konteks praktikum sistem operasi karena membantu mahasiswa memahami konsekuensi pilihan algoritma terhadap kinerja sistem antara kesederhanaan implementasi dan performa sistem. Dengan melakukan simulasi langsung terhadap FCFS dan SJF, mahasiswa dapat membandingkan hasil empiris dengan teori dan menilai algoritma mana yang lebih sesuai untuk kondisi sistem tertentu (Indra et al., 2023).
+
+## Rumusan Masalah
+Bagaimana perbandingan performa antara algoritma FCFS dan SJF dalam hal rata-rata waktu tunggu (Average Waiting Time) dan rata-rata waktu penyelesaian (Average Turnaround Time)?
+
 ## Tujuan
 Praktikum ini bertujuan untuk:
-- Mengimplementasikan dan menganalisis algoritma penjadwalan FCFS dan SJF
-- Menghitung dan membandingkan nilai Average Waiting Time dan Average Turnaround Time pada kedua algoritma
-- Mengidentifikasi kondisi optimal penggunaan masing-masing algoritma
+1. Mengimplementasikan dan menganalisis algoritma penjadwalan FCFS dan SJF
+2. Menghitung dan membandingkan nilai Average Waiting Time dan Average Turnaround Time pada kedua algoritma
+3. Mengidentifikasi kondisi optimal penggunaan masing-masing algoritma
 
 
 ---
 
 ## Metode
-## A. Data Proses
+### Lingkungan Uji
+Praktikum dilakukan dengan perhitungan manual menggunakan spreadsheet untuk validasi hasil. Tidak ada implementasi kode pemrograman khusus, namun perhitungan dilakukan secara sistematis menggunakan formula yang telah ditetapkan.
+### Dataset uji
 Tabel proses yang digunakan:
 
 | Proses | Burst Time | Arrival Time |
@@ -33,31 +41,46 @@ Tabel proses yang digunakan:
 | P2 | 8 | 1 |
 | P3 | 7 | 2 |
 | P4 | 3 | 3 |
+**Tabel 1.** Dataset proses untuk pengujian algoritma FCFS dan SJF
+### Parameter Pengukuran
 
-## Langkah Eksperimen
-#### Eksperimen 1 – FCFS
-1. Mengurutkan proses berdasarkan *arrival time*.  
-2. Menghitung:
-   - Waiting Time (WT) = Start Time – Arrival Time  
-   - Turnaround Time (TAT) = WT + Burst Time  
-3. Membuat Gantt Chart.
+Dua metrik utama yang diukur adalah:
 
-#### Eksperimen 2 – SJF
-1. Mengurutkan proses berdasarkan *burst time* terpendek.  
-2. Menghitung WT dan TAT seperti pada FCFS.  
-3. Membandingkan hasil dengan FCFS.
+1. **Waiting Time (WT)**: Waktu yang dihabiskan proses menunggu di ready queue sebelum mendapat giliran eksekusi
+   ```
+   WT = Waktu Mulai Eksekusi - Arrival Time
+   ```
+
+2. **Turnaround Time (TAT)**: Total waktu dari proses tiba hingga selesai dieksekusi
+   ```
+   TAT = WT + Burst Time
+   ```
+### Langkah Eksperimen
+#### Eksperimen 1: Algoritma FCFS
+1. Proses diurutkan berdasarkan arrival time.
+2. Proses dieksekusi secara berurutan tanpa preemption.
+3. Start time setiap proses dihitung dari waktu selesai proses sebelumnya.
+4. Nilai waiting time dan turnaround time dihitung untuk setiap proses.
+5. Rata-rata WT dan TAT dihitung sebagai indikator performa.
+#### Eksperimen 2: Algoritma SJF 
+1. Proses dipilih berdasarkan burst time terpendek yang telah tiba.
+2. Proses dengan durasi terpendek diprioritaskan untuk dieksekusi.
+3. Perhitungan WT dan TAT dilakukan dengan metode yang sama seperti FCFS.
+4. Hasil dibandingkan dengan FCFS untuk analisis performa.
 
 ---
 
 ## Hasil Eksekusi
 ### A. Hasil FCFS
 ![Screenshot hasil](screenshots/fcfs.png)
+Gantt chart
 ```
      | P1 | P2 | P3 | P4 |
      0    6    14   21   24
 ```
 ### B. Hasil SJF
 ![Screenshot hasil](screenshots/sjf.png)
+Gantt chart
 ```
      | P1 | P2 | P3 | P4 |
      0    6    9   16   24
@@ -71,14 +94,15 @@ Tabel proses yang digunakan:
 ---
 
 ## Pembahasan
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+Hasil praktikum menunjukkan bahwa algoritma SJF menghasilkan rata-rata waiting time dan turnaround time lebih rendah dibandingkan FCFS, sejalan dengan hasil penelitian yang menyatakan bahwa SJF secara teoritis meminimalkan total waktu tunggu dengan memprioritaskan proses berdurasi pendek (Indra et al., 2023). Sebaliknya, FCFS cenderung mengalami convoy effect, yaitu kondisi ketika proses panjang di awal antrian menyebabkan proses lain menunggu lebih lama.
+Meskipun demikian, keunggulan SJF tidak selalu berlaku pada semua sistem karena membutuhkan estimasi burst time yang akurat serta berisiko menyebabkan starvation jika proses pendek terus berdatangan. Oleh karena itu, pemilihan algoritma penjadwalan harus mempertimbangkan kebutuhan sistem, apakah lebih mengutamakan efisiensi waktu atau keadilan dalam pembagian sumber daya (Al Ghifari & Siregar, 2022). 
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1. Algoritma SJF (Shortest Job First) menghasilkan rata-rata waiting time dan turnaround time yang lebih rendah dibandingkan FCFS (First Come First Served), sehingga lebih efisien dalam penggunaan CPU.
+2. Algoritma FCFS mudah diterapkan dan adil berdasarkan urutan kedatangan proses, namun kurang optimal ketika terdapat proses dengan waktu eksekusi yang panjang.
+3. Pemilihan algoritma penjadwalan harus disesuaikan dengan karakteristik sistem, karena terdapat kompromi antara efisiensi waktu eksekusi dan keadilan dalam pembagian sumber daya.
 
 ---
 
@@ -96,7 +120,9 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Daftar Pustaka
+Al Ghifari, A., & Siregar, H. (2022). Analisis perbandingan algoritma penjadwalan CPU FCFS dan SJF. JUPIN (Jurnal Penelitian Inovatif), 3(1), 88–95. https://www.jurnal-id.com/index.php/jupin/article/view/1957
 
+Indra, Z., Zidan, A. A., Silaen, A. A., Habibi, A. N., & Sitepu, K. P. (2023). Analisis algoritma penjadwalan CPU pada sistem operasi. REMIK (Jurnal Riset dan E-Jurnal Manajemen Informatika Komputer), 7(2), 45–52. https://jurnal.polgan.ac.id/index.php/remik/article/view/14924
 
 ---
 
