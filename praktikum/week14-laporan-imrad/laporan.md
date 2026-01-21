@@ -31,7 +31,7 @@ Praktikum ini bertujuan untuk:
 
 ## Metode
 ### Lingkungan Uji
-Praktikum dilakukan dengan perhitungan manual menggunakan spreadsheet untuk validasi hasil. Tidak ada implementasi kode pemrograman khusus, namun perhitungan dilakukan secara sistematis menggunakan formula yang telah ditetapkan.
+Simulasi algoritma FCFS dan SJF diimplementasikan menggunakan bahasa pemrograman Python.
 ### Dataset uji
 Tabel proses yang digunakan:
 
